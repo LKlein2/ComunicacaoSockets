@@ -5,20 +5,26 @@ import pickle
 
 def ConsultarBaseLivros():
 	try:
-		with open("dados.json", "r") as json_file:
+		with open("baseDados.json", "r") as json_file:
 			dados = json.load(json_file)
 	except:
 		dados = json.loads('[]')
 	return dados
 
 def PersistirBaseLivros(baseLivros):
-	with open("dados.json", "w") as json_file:
+	with open("baseDados.json", "w") as json_file:
 		json.dump(baseLivros, json_file, indent=4)
 
 def CriarLivro(json_input):
-	livro_novo = json_input
 	livro = json_input
 	baseLivros = ConsultarBaseLivros()
+	livro_novo = {}
+
+	livro_novo["codigoLivro"] = 0
+	livro_novo["tituloLivro"] = json_input["tituloLivro"]
+	livro_novo["autorLivro"] = json_input["autorLivro"]
+	livro_novo["edicaoLivro"] = json_input["edicaoLivro"]
+	livro_novo["anoPublicacaoLivro"] = json_input["anoPublicacaoLivro"]
 
 	ultimoCodigo = 0
 	for livro in baseLivros:
