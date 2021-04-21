@@ -51,4 +51,5 @@ Métodos de entrada esperados:
 ]
 
 Execução no server(Linux): python3 server_tcp.py {Porta}
+
 Execução no client(Linux): python3 client_tcp.py {IP server} {Porta server}
